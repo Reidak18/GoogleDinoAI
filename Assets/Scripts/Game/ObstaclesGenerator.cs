@@ -17,6 +17,7 @@ namespace GoogleDinoAI.Game
 
         private float startSpeed;
         private float currentSpeed;
+        private List<Obstacle> obstacles = new List<Obstacle>();
 
         public void SetStartSpeed(float speed)
         {
@@ -29,12 +30,18 @@ namespace GoogleDinoAI.Game
             currentSpeed = speed;
         }
 
+        public List<Obstacle> GetObstacles()
+        {
+            return obstacles;
+        }
+
         public void Clear()
         {
             foreach (Transform child in transform)
             {
                 Destroy(child.gameObject);
             }
+            obstacles.Clear();
         }
 
         private IEnumerator Start()
@@ -45,6 +52,7 @@ namespace GoogleDinoAI.Game
                 yield return new WaitForSeconds(delay);
                 Obstacle current = Instantiate(prefab, transform);
                 current.Init(startPos, currentSpeed * 2f);
+                obstacles.Add(current);
             }
         }
     }

@@ -23,12 +23,27 @@ namespace GoogleDinoAI.Game
 
         public event System.Action OnDead;
 
+        public void Initialize(DinoParams parametrs)
+        {
+            spriteRenderer.color = parametrs.color;
+        }
+
         public void Jump()
         {
             if (onGround)
             {
                 rigidbody.AddForce(new Vector2(0, jumpForce / Time.deltaTime), ForceMode2D.Impulse);
             }
+        }
+
+        public float GetPosition()
+        {
+            return transform.localPosition.x;
+        }
+
+        public float GetJumpForce()
+        {
+            return jumpForce;
         }
 
         private void OnCollisionEnter2D(Collision2D collision)
@@ -62,6 +77,7 @@ namespace GoogleDinoAI.Game
         private void Dead()
         {
             OnDead?.Invoke();
+            gameObject.SetActive(false);
         }
     }
 }
