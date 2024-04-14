@@ -41,11 +41,14 @@ namespace GoogleDinoAI.Game
             transform.localPosition = currentPosition;
         }
 
-        public void Init(Vector3 startPos, float speed)
+        public void Init(float startXPos, float speed)
         {
             this.speed = speed;
 
+            Vector3 startPos = transform.position;
+            startPos.x = startXPos;
             transform.position = startPos;
+
             curXValue = -startPos.x;
             currentPosition = transform.localPosition;
         }

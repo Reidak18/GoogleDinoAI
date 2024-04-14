@@ -36,6 +36,21 @@ namespace GoogleDinoAI.Game
             }
         }
 
+        public void Crouch()
+        {
+            if (!onGround)
+                rigidbody.AddForce(new Vector2(0, -jumpForce / Time.deltaTime), ForceMode2D.Impulse);
+
+            animator.SetTrigger("Crouch");
+            animator.ResetTrigger("Run");
+        }
+
+        public void Run()
+        {
+            animator.SetTrigger("Run");
+            animator.ResetTrigger("Crouch");
+        }
+
         public float GetPosition()
         {
             return transform.localPosition.x;

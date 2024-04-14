@@ -7,9 +7,9 @@ namespace GoogleDinoAI.Game
     public class ObstaclesGenerator : MonoBehaviour
     {
         [SerializeField]
-        private Obstacle prefab;
+        private Obstacle[] prefabs;
         [SerializeField]
-        private Vector3 startPos;
+        private float startXPos;
         [SerializeField]
         private float minTime;
         [SerializeField]
@@ -50,8 +50,8 @@ namespace GoogleDinoAI.Game
             {
                 float delay = Random.Range(minTime * startSpeed / currentSpeed, maxTime * startSpeed / currentSpeed);
                 yield return new WaitForSeconds(delay);
-                Obstacle current = Instantiate(prefab, transform);
-                current.Init(startPos, currentSpeed * 2f);
+                Obstacle current = Instantiate(prefabs[Random.Range(0, prefabs.Length)], transform);
+                current.Init(startXPos, currentSpeed * 2f);
                 obstacles.Add(current);
             }
         }
