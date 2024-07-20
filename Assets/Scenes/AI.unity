@@ -123,72 +123,6 @@ NavMeshSettings:
     debug:
       m_Flags: 0
   m_NavMeshData: {fileID: 0}
---- !u!1001 &15687348
-PrefabInstance:
-  m_ObjectHideFlags: 0
-  serializedVersion: 2
-  m_Modification:
-    serializedVersion: 3
-    m_TransformParent: {fileID: 739869743}
-    m_Modifications:
-    - target: {fileID: 2338812817659781102, guid: 503dbf2f165b8474bb00bede43f49dc3, type: 3}
-      propertyPath: m_LocalPosition.x
-      value: -8
-      objectReference: {fileID: 0}
-    - target: {fileID: 2338812817659781102, guid: 503dbf2f165b8474bb00bede43f49dc3, type: 3}
-      propertyPath: m_LocalPosition.y
-      value: -3.5
-      objectReference: {fileID: 0}
-    - target: {fileID: 2338812817659781102, guid: 503dbf2f165b8474bb00bede43f49dc3, type: 3}
-      propertyPath: m_LocalPosition.z
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 2338812817659781102, guid: 503dbf2f165b8474bb00bede43f49dc3, type: 3}
-      propertyPath: m_LocalRotation.w
-      value: 1
-      objectReference: {fileID: 0}
-    - target: {fileID: 2338812817659781102, guid: 503dbf2f165b8474bb00bede43f49dc3, type: 3}
-      propertyPath: m_LocalRotation.x
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 2338812817659781102, guid: 503dbf2f165b8474bb00bede43f49dc3, type: 3}
-      propertyPath: m_LocalRotation.y
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 2338812817659781102, guid: 503dbf2f165b8474bb00bede43f49dc3, type: 3}
-      propertyPath: m_LocalRotation.z
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 2338812817659781102, guid: 503dbf2f165b8474bb00bede43f49dc3, type: 3}
-      propertyPath: m_LocalEulerAnglesHint.x
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 2338812817659781102, guid: 503dbf2f165b8474bb00bede43f49dc3, type: 3}
-      propertyPath: m_LocalEulerAnglesHint.y
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 2338812817659781102, guid: 503dbf2f165b8474bb00bede43f49dc3, type: 3}
-      propertyPath: m_LocalEulerAnglesHint.z
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 8067633993660305742, guid: 503dbf2f165b8474bb00bede43f49dc3, type: 3}
-      propertyPath: m_Name
-      value: Dino
-      objectReference: {fileID: 0}
-    - target: {fileID: 8067633993660305742, guid: 503dbf2f165b8474bb00bede43f49dc3, type: 3}
-      propertyPath: m_IsActive
-      value: 0
-      objectReference: {fileID: 0}
-    m_RemovedComponents: []
-    m_RemovedGameObjects: []
-    m_AddedGameObjects: []
-    m_AddedComponents: []
-  m_SourcePrefab: {fileID: 100100000, guid: 503dbf2f165b8474bb00bede43f49dc3, type: 3}
---- !u!4 &15687349 stripped
-Transform:
-  m_CorrespondingSourceObject: {fileID: 2338812817659781102, guid: 503dbf2f165b8474bb00bede43f49dc3, type: 3}
-  m_PrefabInstance: {fileID: 15687348}
-  m_PrefabAsset: {fileID: 0}
 --- !u!1 &66007804
 GameObject:
   m_ObjectHideFlags: 0
@@ -335,17 +269,6 @@ BoxCollider2D:
   serializedVersion: 2
   m_Size: {x: 24.04, y: 0.33654118}
   m_EdgeRadius: 0
---- !u!114 &337685979 stripped
-MonoBehaviour:
-  m_CorrespondingSourceObject: {fileID: 7348820363953685926, guid: 503dbf2f165b8474bb00bede43f49dc3, type: 3}
-  m_PrefabInstance: {fileID: 15687348}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 0}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: de10b4770e757427f90f1e784e8edccd, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
 --- !u!1 &337781031
 GameObject:
   m_ObjectHideFlags: 0
@@ -653,7 +576,6 @@ Transform:
   m_Children:
   - {fileID: 907700547}
   - {fileID: 66007805}
-  - {fileID: 15687349}
   - {fileID: 1211100975}
   - {fileID: 526355662}
   m_Father: {fileID: 0}
@@ -886,7 +808,6 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   prefabs:
   - {fileID: 6617802062575761011, guid: 454adb79fb4cf4c40b53f3167a59cb50, type: 3}
-  - {fileID: 6617802062575761011, guid: e8c02388d00614ae0b6d799ea6c0b322, type: 3}
   startXPos: 10
   minTime: 1
   maxTime: 5
@@ -1392,7 +1313,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: d4e2b16c113a2415585515fb8c34be2d, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  player: {fileID: 337685979}
+  player: {fileID: 0}
   gameProgress: {fileID: 1471228564}
   infinityGround: {fileID: 66007807}
   scoreText: {fileID: 2044445240}
