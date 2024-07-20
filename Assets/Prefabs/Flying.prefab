@@ -101,9 +101,10 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   variants:
   - width: 1.22
-    height: 1
+    height: 3
     sprite: {fileID: 884349034, guid: 46ba1cb4f996f4e94936bee2b5416a9c, type: 3}
   speed: 10
+  obstacleType: 1
 --- !u!61 &817031108816488469
 BoxCollider2D:
   m_ObjectHideFlags: 0
@@ -136,7 +137,7 @@ BoxCollider2D:
   m_IsTrigger: 1
   m_UsedByEffector: 0
   m_UsedByComposite: 0
-  m_Offset: {x: 0, y: 0}
+  m_Offset: {x: 0, y: 1}
   m_SpriteTilingProperty:
     border: {x: 0, y: 0, z: 0, w: 0}
     pivot: {x: 0.5, y: 0.5}
@@ -147,7 +148,7 @@ BoxCollider2D:
     adaptiveTiling: 0
   m_AutoTiling: 0
   serializedVersion: 2
-  m_Size: {x: 1.22, y: 1}
+  m_Size: {x: 1.22, y: 3}
   m_EdgeRadius: 0
 --- !u!95 &2879752992848626733
 Animator:

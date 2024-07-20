@@ -90,6 +90,7 @@ namespace GoogleDinoAI.AI
         // функция активации - в нашем случае достаточно пороговой
         private float Activate(float value)
         {
+            //return (float)Math.Tanh(value);
             return value > 0 ? 1 : 0;
         }
 

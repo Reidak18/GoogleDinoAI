@@ -31,7 +31,8 @@ namespace GoogleDinoAI.Game
                 Speed = gameProgress.currentSpeed,
                 Distance = nearest == null || (nearest.GetPosition() - player.GetPosition()) < 0 ? int.MaxValue : nearest.GetPosition() - player.GetPosition(),
                 Width = nearest?.GetWidthHeight().x ?? -1,
-                JumpForce = player.GetJumpForce()
+                JumpForce = player.GetJumpForce(),
+                ObstacleType = nearest == null || (nearest.GetPosition() - player.GetPosition()) < 0 ? -1 : (float)nearest.GetType(),
             };
 
             return input;

@@ -3,6 +3,11 @@ using UnityEngine;
 
 namespace GoogleDinoAI.AI
 {
+    public enum Act
+    {
+        RUN, JUMP, CROUCH
+    }
+
     public class AIPlayer : MonoBehaviour
     {
         private GameSession gameSession;
@@ -10,7 +15,8 @@ namespace GoogleDinoAI.AI
         public float Fitness;
         public NeuralNetwork neuralNetwork;
 
-        private float jumpFine = 0.1f;
+        private const float jumpFine = 0.1f;
+        private const float crouchFine = 0.1f;
 
         private Dino dino;
 
@@ -36,26 +42,39 @@ namespace GoogleDinoAI.AI
 
         void FixedUpdate()
         {
-            if (GetNetworkAnswer())
-            {
-                dino.Jump();
-                Fitness -= jumpFine;
+            switch (GetNetworkAnswer()) {
+                case Act.RUN:
+                    dino.Run();
+                    break;
+                case Act.JUMP:
+                    dino.Jump();
+                    Fitness -= jumpFine;
+                    break;
+                case Act.CROUCH:
+                    dino.Crouch();
+                    Fitness -= crouchFine;
+                    break;
             }
         }
 
-        public float distance;
-        bool GetNetworkAnswer()
+        private Act GetNetworkAnswer()
         {
             InputParams parametrs = gameSession.GetGameInput();
-            float[] input = new float[4];
+            float[] input = new float[5];
             input[0] = parametrs.Speed;
             input[1] = parametrs.Distance;
             input[2] = parametrs.Width;
             input[3] = parametrs.JumpForce;
+            input[4] = parametrs.ObstacleType;
 
-            distance = input[1];
             float[] output = neuralNetwork.FeedForward(input);
-            return output[0] == 1;
+
+            if (output[0] < 0.5f)
+                return Act.CROUCH;
+            if (output[0] >= 0.5f)
+                return Act.JUMP;
+
+            return Act.RUN;
         }
 
         void OnDeadHandler()

@@ -11,6 +11,11 @@ namespace GoogleDinoAI.Game
         public Sprite sprite;
     }
 
+    public enum ObstacleType
+    {
+        SIMPLE, FLYING
+    }
+
     [RequireComponent(typeof(SpriteRenderer)), RequireComponent(typeof(BoxCollider2D))]
     public class Obstacle : MonoBehaviour
     {
@@ -18,6 +23,8 @@ namespace GoogleDinoAI.Game
         private ObstacleParams[] variants;
         [SerializeField]
         private float speed = 10f;
+        [SerializeField]
+        private ObstacleType obstacleType;
 
         private Vector3 currentPosition;
         private float curXValue;
@@ -61,6 +68,11 @@ namespace GoogleDinoAI.Game
         public Vector2 GetWidthHeight()
         {
             return WidthHeight;
+        }
+
+        public ObstacleType GetType()
+        {
+            return obstacleType;
         }
 
         private void OnTriggerEnter2D(Collider2D collision)

@@ -30,7 +30,7 @@ namespace GoogleDinoAI.AI
 
         void Start()
         {
-            layers = new int[] { 4, 8, 8, 1 };
+            layers = new int[] { 5, 10, 10, 1 };
             InstantiatePopulation();
             gameSession.RestartGame();
         }

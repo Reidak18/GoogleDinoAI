@@ -32,7 +32,9 @@ namespace GoogleDinoAI.Game
         {
             if (onGround)
             {
-                rigidbody.AddForce(new Vector2(0, jumpForce / Time.deltaTime), ForceMode2D.Impulse);
+                rigidbody.AddForce(new Vector2(0, jumpForce / Time.deltaTime * 2), ForceMode2D.Impulse);
+                Debug.Log("JUMP");
+                onGround = false;
             }
         }
 

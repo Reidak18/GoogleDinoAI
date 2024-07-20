@@ -6,5 +6,6 @@ namespace GoogleDinoAI.AI
         public float Distance;
         public float Width;
         public float JumpForce;
+        public float ObstacleType;
     }
 }
